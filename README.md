@@ -23,8 +23,15 @@
   
 * Broadband Internet availability (number of providers and technology) <br>
   **bb_provid_num, bb_tech_num** and dummy variables: **bb_CM bb_C bb_A bb_M** <br><br>
-  In raw data, the variable name for broadband is bandalarga in all years. However, although there are no missing values in provider names, the information about technology are missing in 2009 and 2010. I considered using the match between provider name and technology in previous years to make up for this, but it seems that the provider names do not uniquely match to a single technology. 
+  In raw data, the variable name for broadband is *bandalarga* in all years. However, although there are no missing values in provider names, the information about technology are missing in 2009 and 2010. I considered using the match between provider name and technology in previous years to make up for this, but it seems that the provider names do not uniquely match to a single technology. 
   
 * Backhaul presence and speed if available <br>
-  **bh_presence,bh_speed**
+  **bh_presence,bh_speed** <br><br>
   It seems that backhaul is not available until 2010. I am not sure whether this is due to the lack of information or the backhaul actually strated to be available in 2010. 
+  In raw data, the variable name for backhaul presence is *backhaul* and *bandabackhaulmbps8* for backhaul speed.
+  
+### Merge of Dataset
+The time variable in the cleaned panel dataset is **year** and the individual variable is **muni**. <br><br>
+There is no munipacity number in the raw data of 2010 and there are some repeated observations (10 in total) of the same munipacity in 2010. The information in the repeated observations are basicly the same except few variables like types of mobile technologies. I temporarily kept the first one of the repeated observations to make it a panel data. I merged the 2010 data to the munipacity_number-location_sigla data using both the sigla and location and there are 179 observations that can not be matched. I am not sure whether this matters in our study and I will have a closer look at the matching process if needed. 
+
+
